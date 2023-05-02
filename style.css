@@ -1,13 +1,20 @@
-
-body {
-    background-color:rgb(32, 32, 32);
-    font-family: sans-serif;
-    
-
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Righteous&display=swap');
+* {
+    margin: o;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
 }
-h1, h2, h3 { background-color:rgb(70, 70, 70); 
-
+body {
+    background: linear-gradient(68.15deg, #222020 16.62%, #00a708 85.61%);
+    font-family: sans-serif;
+}
+h1, h2, h3 { 
+    background: linear-gradient(68.15deg, #053800 16.62%, #007e04 85.61%);
     line-height: 40px;
+}
+#inicio{
+    font-family: Righteous;
 }
 p, h1, h2, h3 {
 
@@ -30,5 +37,5 @@ p {
 .finalpage{
 
     text-align: center;
-    color: antiquewhite;
+    
 }
