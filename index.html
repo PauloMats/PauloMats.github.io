@@ -1,58 +1,240 @@
 <!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- title -->
+    <title>Paulo Mateus - Portfólio</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/extends.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar">
+      <div class="navbar__content max-width mb-0">
+        <a href="/">
+          <img src="assets/logo.svg" alt="Lucas Silva" />
+        </a>
+        <ul class="navbar__links">
+          <li><a href="#header">Início</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#skills">Habilidades</a></li>
+          <li><a href="#projects">Projetos</a></li>
+          <li><a href="#footer">Contato</a></li>
+        </ul>
+        <div class="navbar__mobile">
+          <img src="assets/menu.svg" alt="menu" class="burguer" />
+          <ul class="mobile__links">
+            <li><a href="#header">Início</a></li>
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#skills">Habilidades</a></li>
+            <li><a href="#projects">Projetos</a></li>
+            <li><a href="#footer">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-<html lang="pt-br">
-    
-<head>
-<link rel="stylesheet" href="style.css">
-<title>Paulo Mats Dev</title>
-
-</head>
-
-<body>
-
-<div class="div-divisor">
-
-    <header class="header-class">
-        <h1>‎ Paulo Mateus</h1> <br>
-            <h2> <i>(Mats)</i> Dev </h2>
-            <img src="./Trybe fundo Nomes.png" alt="Minha foto pessoal" width="400" height="400">
-                <p> Feito durante o curso de desenvolvedor Full Stack na Trybe
-                </p>
+    <!-- header -->
+    <header id="header" class="max-width">
+      <div class="header__left">
+        <h1>Olá! Sou Paulo Mateus, Programador Front End e atualmente, estudante Back-End na Trybe.</h1>
+        <p>
+          Atualmente estudo na <a href="https://www.betrybe.com/formacao-desenvolvimento-web"><u>Trybe</u></a> onde me encontro no módulo de Back-End, e estou na reta final do curso.
+        </p>
+        <a href="#about" class="btn btn-primary">Saiba Mais!</a>
+      </div>
+      <div class="header__right">
+        <div class="header__image">
+          <img src="img/Trybe fundo foto LEVE.png" alt="Paulo Mateus foto" class="mats" />
+          <img src="assets/abstract.svg" alt="background" class="background" />
+        </div>
+      </div>
     </header>
 
-    <section class="bio-ptbr">
-
-    <p> Olá, me chamo <b> Paulo Mateus dos Santos Silva</b>, tenho <b> 25 anos </b> e sou estudante de Web full Stack na Trybe. Moro atualmente no Brasil, na Cidade de teotônio Vilela estado de Alagoas. </p>
+    <!-- Sobre -->
+    <section id="about" class="about max-width">
+      <div class="about__left">
+        <h2 class="secondary-title">Além do código: quem sou eu?</h2>
+        <p>
+          Que tal se conectar comigo nas redes sociais abaixo e saber mais sobre
+          meu trabalho?
+        </p>
+        <ul>
+          <li>
+            <a href="#"><img src="assets/instagram.svg" alt="Instagram" /></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/paulomatsdevfulluxui/"><img src="assets/linkedin.svg" alt="Linkedin" /></a>
+          </li>
+          <li>
+            <a href="https://www.behance.net/pmmats"><img src="assets/facebook.svg" alt="Behance" /></a>
+          </li>
+        </ul>
+      </div>
+      <div class="about__right">
+        <h3 class="tertiary-title mb-m">
+          Desenvolvedor fullstack apaixonado por tecnologia e soluções criativas
+        </h3>
+        <p>
+          Olá, eu sou Paulo Mateus, um estudante, e desenvolvedor front-end apaixonado por
+          tecnologia e soluções criativas. Sou da área do Design Gráfico, e possuo mais de 3 anos de experiência em
+          tal ramo. O que me possibilitou desenvolver um pensamento criativo, resolutivo e ágil nas demandas do dia a dia. Seja qual for o problema ou desafio, estou sempre disposto a aprender e achar a melhor solução.
+        </p>
+        <p>
+          Eu amo o desafio de encontrar soluções inovadoras e criativas para
+          problemas complexos e estou sempre buscando aprender e crescer como
+          profissional.
+        </p>
+      </div>
     </section>
 
- 
-</div>
+    <!-- habilidades -->
+    <section id="skills" class="skills">
+      <div class="skills__content max-width">
+        <h2 class="tertiary-title">Minha caixinha de ferramentas</h2>
+        <p class="description">
+          Descubra as habilidades e ferramentas que uso e tenho dominio e que me permitem
+          criar soluções novas, criativas e funcionais.
+        </p>
+        <ul>
+          <li class="skills__item">
+            <div class="image-container">
+              <img src="assets/notebook.png" alt="Desenvolvimento Web" />
+            </div>
+            <h3>Desenvolvimento Web</h3>
+            <p>
+              Experiência em desenvolvimento fullstack com foco em tecnologias
+              modernas.
+            </p>
+          </li>
+          <li class="skills__item">
+            <div class="image-container">
+              <img src="assets/colors.png" alt="Web Design" />
+            </div>
+            <h3>Web Design</h3>
+            <p>
+              Habilidade em criar layouts modernos e responsivos, com foco na
+              experiência do usuário.
+            </p>
+          </li>
+          <li class="skills__item">
+            <div class="image-container">
+              <img src="assets/phone.png" alt="UX/UI Design" />
+            </div>
+            <h3>UX/UI Design</h3>
+            <p>
+              Conhecimentos em design de interface e experiência do usuário
+              visualmente atraentes e intuitivas.
+            </p>
+          </li>
+          <li class="skills__item">
+            <div class="image-container">
+              <img src="assets/files.png" alt="Gerenciamentos de versões" />
+            </div>
+            <h3>Gerenciamentos de versões</h3>
+            <p>
+              Experiência em ferramentas de gerenciamento de versão para
+              controle de projetos.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-    <section class="bio-english">
-    <p> English Version: Hello, I'm Paulo Mateus dos Santos Silva, have 25 years and i'm a full stack web student at Trybe. I currently live in Brazil, in the city of teotônio Vilela in the state of Alagoas.
-    </p>
-        </section>
-        
-    
-<h2> Habilidades </h2>
-<li id="hability">
-    <ul>Lorem ipsum,</ul>
-    <ul>dolor sit amet consectetur</ul>
-    <ul>adipisicing elit.</ul>
-    <ul>Placeat incidunt repellendus quis libero</ul>
-    <ul> laborum magnam repellat totam aspernatur</ul>
-    <ul> nobis laboriosam voluptatem nulla aliquid </ul>
-</li>
+    <!-- Projetos -->
+    <section id="projects" class="projects max-width">
+      <div class="projects__content">
+        <h2 class="secondary-title">Projetos em Destaque</h2>
+        <p>
+          De ideias abstratas inviduais a projetos em grupo e extra curriculares, aqui estão alguns dos
+          meus trabalhos.
+        </p>
+      </div>
+      <ul>
+        <li>
+          <div class="image">
+            <img src="assets/task-manager.png" alt="Gerenciamento de tarefas" />
+          </div>
+          <div class="projects__info">
+            <h3 class="tertiary-title">
+              App de Receitas - Recipes App
+            </h3>
+            <p>
+              Um projeto feito durante a formação de desenvolvedor Full Stack na Trybe, o app de receitas é um projeto que utiliza React, Redux, Context API, Hooks e muito mais. Para facilitar e auxiliar na hora de cozinhar, o app conta com um timer, e um sistema de favoritos, onde o usuário pode salvar suas receitas favoritas. Seja um cozinheiro amador ou profissional, o app de receitas é para todos.
+            </p>
+            <a href="#">Leia mais &rarr;</a>
+          </div>
+        </li>
+        <li class="projects__reversed-list">
+          <div class="image">
+            <img src="assets/ecommerce.png" alt="ecommerce" />
+          </div>
+          <div class="projects__info">
+            <h3 class="tertiary-title">
+              Novo Projeto em Breve
+            </h3>
+            <p>
+             Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, necessitatibus quibusdam deleniti sapiente eius animi nam est commodi voluptatum enim et labore asperiores. Maxime dolorem nesciunt asperiores possimus laboriosam. Asperiores.
+            </p>
+            <a href="#">Leia mais &rarr;</a>
+          </div>
+        </li>
+        <li>
+          <div class="image">
+            <img src="assets/delivery.png" alt="delivery" />
+          </div>
+          <div class="projects__info">
+            <h3 class="tertiary-title">
+              Novo projeto em breve
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. In minus voluptatibus omnis minima hic officia corrupti, blanditiis reprehenderit alias veritatis, repellendus eveniet dolores, voluptates exercitationem saepe excepturi molestiae placeat eum?
+            </p>
+            <a href="#">Leia mais &rarr;</a>
+          </div>
+        </li>
+      </ul>
+    </section>
 
-<footer class="finalpage">
-
-<h3> <b> Área de Links </b> </h3>
-
-<a href="https://diolinux.com.br/sistemas-operacionais/dicas-para-dominar-o-terminal-linux.html" target ="_blank">Dicas Para terminal Linux | </a>
-
-<a href="#inicio"> Inicio e Foto | </a> </a>
-</footer>
-
-<script src="script.js"></script>
-</body>
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="footer__content max-width mb-0">
+        <h2 class="tertiary-title mb-s">Vamos conversar?</h2>
+        <p class="mb-m">
+          Ficarei feliz em saber mais sobre seus projetos e como podemos
+          trabalhar juntos para torná-los realidade.
+        </p>
+        <div class="footer__contact mb-m">
+          <span class="mb-m">pm.mats98@gmail.com</span>
+          <span>(82) 9.9914-6087</span>
+        </div>
+        <ul class="mb-l">
+          <li>
+            <a href="#"><img src="assets/instagram.svg" alt="Instagram" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="assets/linkedin.svg" alt="Linkedin" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="assets/facebook.svg" alt="Facebook" /></a>
+          </li>
+        </ul>
+        <p class="footer__copyright">
+          © 2024 Paulo Mateus. Todos os direitos reservados.
+        </p>
+      </div>
+    </footer>
+    <!-- script -->
+    <script src="scripts/index.js"></script>
+  </body>
 </html>
