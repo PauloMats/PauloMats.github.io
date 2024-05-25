@@ -1,13 +1,24 @@
 :root {
   --white: #ffffff;
-  --gray: #d9d9d9;
   --black: #000000;
   --primary-color: #02073e;
   --secondary-color: #0f2137;
   --dark-secondary-color: #3c415c;
-  --tertiary-color: #a6b1e1;
   --light-tertiary-color: #f3f6fb;
+  --dark-tertiary-color: #1b1b1b;
   --text-color: #343d48;
+  --text-color-dark: #f3f6fb;
 
   --font-family: 'DM Sans', sans-serif;
+  --navbar-bg: var(--primary-color);
+  --navbar-text: var(--white);
+  --background-color: var(--white);
+  --text-color: var(--text-color);
+}
+
+[data-theme="dark"] {
+  --navbar-bg: var(--dark-secondary-color);
+  --navbar-text: var(--white);
+  --background-color: var(--black);
+  --text-color: var(--text-color-dark);
 }

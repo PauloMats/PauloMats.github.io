@@ -11,8 +11,19 @@ html {
 }
 
 body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
   font-size: 1.6rem;
   margin-top: 15rem;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.skills {
+  background-color: var(--skills-bg);
+  color: var(--skills-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ul {
@@ -30,10 +41,46 @@ h1 {
   color: var(--primary-color);
 }
 
+
 .secondary-title {
   font-size: 4rem;
   font-weight: 700;
   color: var(--primary-color);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--navbar-bg);
+  color: var(--navbar-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar__links a {
+  color: var(--navbar-text);
+  text-decoration: none;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.navbar__links a:hover {
+  color: var(--secondary-color);
+}
+
+#theme-toggle-button {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#theme-toggle-button:hover {
+  background-color: var(--dark-secondary-color);
 }
 
 .tertiary-title {
@@ -124,3 +171,4 @@ p:not(:last-of-type),
     font-size: 4.2rem;
   }
 }
+
