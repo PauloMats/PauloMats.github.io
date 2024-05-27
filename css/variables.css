@@ -8,6 +8,7 @@
   --dark-tertiary-color: #1b1b1b;
   --text-color: #343d48;
   --text-color-dark: #f3f6fb;
+  --text-color2: #0037ff;
 
   --font-family: 'DM Sans', sans-serif;
   --navbar-bg: var(--primary-color);
@@ -21,4 +22,6 @@
   --navbar-text: var(--white);
   --background-color: var(--black);
   --text-color: var(--text-color-dark);
+  --text-color2: var(--text-color2);
+
 }
