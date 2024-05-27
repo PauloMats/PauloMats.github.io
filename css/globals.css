@@ -10,6 +10,16 @@ html {
   font-size: 62.5%;
 }
 
+.navbar img {
+  padding: 0;
+  margin: 0;
+  height: auto; /* mantém a proporção da imagem */
+  position: absolute; /* posiciona a imagem no canto superior */
+  top: 0;
+  left: 0;
+}
+
+
 body {
   font-family: var(--font-family);
   background-color: var(--background-color);
