@@ -180,6 +180,16 @@ p:not(:last-of-type),
   .max-width {
     padding: 0 2rem;
   }
+
+  .navbar img {
+    padding: 0;
+    margin: 0;
+    width: 100px;
+    height: auto; /* mantém a proporção da imagem */
+    position: absolute; /* posiciona a imagem no canto superior */
+    top: 10%;
+    left: 0;
+}
 }
 
 @media only screen and (max-width: 425px) {
@@ -192,8 +202,8 @@ p:not(:last-of-type),
     width: 100px;
     height: auto; /* mantém a proporção da imagem */
     position: absolute; /* posiciona a imagem no canto superior */
-    top: 0;
+    top: 10%;
     left: 0;
-  }
+  } 
 }
 
