@@ -1,14 +1,18 @@
+/* Variáveis de tema claro */
+
 :root {
-  --white: #ffffff;
-  --black: #000000;
-  --primary-color: #02073e;
-  --secondary-color: #0f2137;
-  --dark-secondary-color: #3c415c;
-  --light-tertiary-color: #f3f6fb;
-  --dark-tertiary-color: #1b1b1b;
-  --text-color: #343d48;
-  --text-color-dark: #f3f6fb;
-  --text-color2: #0037ff;
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --text-color2: #002397;
+  --text-color-dark2: #666666;
+  --primary-color: #569aff;
+  --secondary-color: #257cff;
+  --dark-secondary-color: #1c86ee;
+  --skills-bg: #f5f5f5;
+  --skills-text: #333333;
+  --navbar-bg: #ffffff;
+  --navbar-text: #000000;
+  --light-tertiary-color: #f8f8f8;
 
   --font-family: 'DM Sans', sans-serif;
   --navbar-bg: var(--primary-color);
@@ -17,11 +21,25 @@
   --text-color: var(--text-color);
 }
 
+/* Variáveis de tema escuro */
 [data-theme="dark"] {
-  --navbar-bg: var(--dark-secondary-color);
-  --navbar-text: var(--white);
-  --background-color: var(--black);
-  --text-color: var(--text-color-dark);
-  --text-color2: var(--text-color2);
+  --background-color: #000000;
+  --text-color: #ffffff;
+  --text-color2: #ffffff;
+  --text-color-dark2: #d3d3d3;
+  --primary-color: #ff6347;
+  --secondary-color: #1e90ff;
+  --dark-secondary-color: #1c86ee;
+  --skills-bg: #333333;
+  --skills-text: #ffffff;
+  --navbar-bg: #333333;
+  --navbar-text: #ffffff;
+  --light-tertiary-color: #444444;
+}
 
+/* Adiciona a cor azul claro específica para h1, h2 e h3 no dark mode */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3 {
+  color: #87CEFA;
 }
