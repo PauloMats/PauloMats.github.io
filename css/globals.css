@@ -13,6 +13,7 @@ html {
 .navbar img {
   padding: 0;
   margin: 0;
+  width: 250px;
   height: auto; /* mantém a proporção da imagem */
   position: absolute; /* posiciona a imagem no canto superior */
   top: 0;
@@ -184,6 +185,15 @@ p:not(:last-of-type),
 @media only screen and (max-width: 425px) {
   h1 {
     font-size: 4.2rem;
+  }
+  .navbar img {
+    padding: 0;
+    margin: 0;
+    width: 100px;
+    height: auto; /* mantém a proporção da imagem */
+    position: absolute; /* posiciona a imagem no canto superior */
+    top: 0;
+    left: 0;
   }
 }
 
