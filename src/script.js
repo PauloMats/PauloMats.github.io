@@ -40,3 +40,21 @@ updateButtonText(savedTheme);
 // Evento de clique no botão
 themeToggleButton.addEventListener('click', toggleTheme);
 });
+
+function showError(message) {
+  var errorMessage = document.getElementById('error-message');
+  errorMessage.textContent = message;
+  errorMessage.style.display = 'block';
+  
+  setTimeout(function() {
+    errorMessage.style.display = 'none';
+  }, 5000); // Esconde a mensagem após 5 segundos
+}
+
+// Adicione event listeners aos botões/links que ainda não estão finalizados
+document.querySelectorAll('.not-finished').forEach(function(element) {
+  element.addEventListener('click', function(event) {
+    event.preventDefault();
+    showError('Ops! Este recurso ainda não foi finalizado. Mas tenho certeza que o Desenvolvedor está trabalhando nisso! 😉')	;
+  });
+});

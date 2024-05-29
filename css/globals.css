@@ -10,6 +10,24 @@ html {
   font-size: 62.5%;
 }
 
+.error-message {
+  display: none; /* Oculto por padrão */
+  padding: 10px;
+  margin: 0;
+  border: 1px solid red;
+  background-color: #f8d7da;
+  color: #721c24;
+  border-radius: 5px;
+  font-size: 18px;
+  position: fixed; /* Fixo para centralizar em relação à janela */
+  top: 50%; /* Centralizado verticalmente */
+  left: 50%; /* Centralizado horizontalmente */
+  transform: translate(-50%, -50%); /* Ajuste para centralizar */
+  z-index: 9999; /* Certifique-se de que a mensagem esteja acima de outros elementos */
+  max-width: 80%; /* Para evitar que a mensagem seja muito larga */
+  text-align: center; /* Centraliza o texto */
+}
+
 .navbar img {
   padding: 0;
   margin: 0;
