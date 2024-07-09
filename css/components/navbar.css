@@ -48,23 +48,31 @@
       display: flex;
       align-items: center;
     }
-  
+
+    .navbar .navbar__content .navbar-logo {
+      margin-right: auto;
+      margin-top: 1%;
+      margin-left: 8%;
+    }
+
     .navbar .navbar__content .navbar__mobile img {
       width: 3.6rem;
       height: 3.6rem;
+      margin-top: 2%;
+      margin-left: 1%;
       cursor: pointer;
     }
-  
+
     .navbar .navbar__content .navbar__mobile.active .mobile__links {
       display: flex;
       flex-direction: column;
-      background-color: var(--white);
+      background-color:rgba(0, 1, 83, 0.425);
       width: 100%;
       position: absolute;
-      top: 98%;
+      top: 98%; 
       left: 0;
       padding: 1rem 0;
-      box-shadow: 0 0.4rem 0.5rem rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0.4rem 0.5rem rgba(0, 0, 0, 0.466);
       z-index: 1;
     }
   
