@@ -4,15 +4,23 @@ const button = document.querySelector('.burguer');
 
 button.addEventListener('click', function () {
   mobileNavbar.classList.toggle('active');
+
+  // Alternar entre o ícone de menu e "X"
+  if (mobileNavbar.classList.contains('active')) {
+    button.src = "assets/fechar.png"; // Remove o ícone atual do menu
+  
+  } else {
+    button.src = "assets/menu.svg"; // Retorna ao ícone do menu 
+  }
 });
 
 window.addEventListener('scroll', function () {
   if (this.window.pageYOffset > 0) return navbar.classList.add('active');
   return navbar.classList.remove('active');
 });
-
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggleButton = document.getElementById('theme-toggle-button');
+  const themeIcon = document.getElementById('theme-icon');
   
   // Função para alternar o tema
   const toggleTheme = () => {
@@ -20,25 +28,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    updateButtonText(newTheme);
+    updateButtonIcon(newTheme);
   };
   
-   // Função para atualizar o texto do botão
-   const updateButtonText = (theme) => {
+  // Função para atualizar o ícone do botão
+  const updateButtonIcon = (theme) => {
     if (theme === 'dark') {
-      themeToggleButton.innerText = 'Voltar ao modo claro';
+      themeIcon.src = '/assets/dark-icon.png';
+      themeIcon.alt = 'Dark Mode Icon';
     } else {
-      themeToggleButton.innerText = 'Ir para o modo escuro';
+      themeIcon.src = '/assets/light-icon.png';
+      themeIcon.alt = 'Light Mode Icon';
     }
   };
 
-// Definir o tema com base na preferência salva
-const savedTheme = localStorage.getItem('theme') || 'light';
-document.documentElement.setAttribute('data-theme', savedTheme);
-updateButtonText(savedTheme);
+  // Definir o tema com base na preferência salva
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  updateButtonIcon(savedTheme);
 
-// Evento de clique no botão
-themeToggleButton.addEventListener('click', toggleTheme);
+  // Evento de clique no botão
+  themeToggleButton.addEventListener('click', toggleTheme);
 });
 
 function showError(message) {

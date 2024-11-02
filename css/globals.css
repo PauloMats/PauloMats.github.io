@@ -10,6 +10,19 @@ html {
   font-size: 62.5%;
 }
 
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#theme-toggle-button img {
+  width: 60px; /* Ajuste conforme o tamanho desejado */
+  height: 30px;
+  margin-top: 3%;
+ margin-left: 95%;
+}
+
 .error-message {
   display: none; /* Oculto por padrão */
   padding: 10px;
@@ -112,6 +125,15 @@ h2 {
   border-radius: 0.3rem;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+/* Estilo para quando o caractere X estiver visível */
+.burguer {
+  font-size: 24px;
+  color: #333; /* Escolha uma cor que combine com seu design */
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+}
 
 #theme-toggle-button:hover {
   background-color: var(--dark-secondary-color);
@@ -188,6 +210,13 @@ p:not(:last-of-type),
   h1 {
     font-size: 6rem;
   }
+
+  #theme-toggle-button img {
+    width: 60px; /* Ajuste conforme o tamanho desejado */
+    height: 30px;
+    margin-top: 5%;
+   margin-left: 93%;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -208,6 +237,13 @@ p:not(:last-of-type),
     top: 10%;
     left: 0;
 }
+
+#theme-toggle-button img {
+  width: 60px; /* Ajuste conforme o tamanho desejado */
+  height: 30px;
+  margin-top: 1%;
+ margin-left: 89%;
+}
 }
 
 @media only screen and (max-width: 425px) {
@@ -223,5 +259,12 @@ p:not(:last-of-type),
     top: 10%;
     left: 0;
   } 
+
+  #theme-toggle-button img {
+    width: 60px; /* Ajuste conforme o tamanho desejado */
+    height: 30px;
+    margin-top: 2%;
+   margin-left: 83%;
+  }
 }
 

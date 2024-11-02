@@ -63,10 +63,20 @@
       cursor: pointer;
     }
 
+    /* Estilo para quando o caractere X estiver visível */
+.burguer {
+  font-size: 24px;
+  color: #333; /* Escolha uma cor que combine com seu design */
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+}
+
     .navbar .navbar__content .navbar__mobile.active .mobile__links {
       display: flex;
       flex-direction: column;
-      background-color:rgba(0, 1, 83, 0.425);
+      background-color:#569AFF;  
       width: 100%;
       position: absolute;
       top: 98%; 
