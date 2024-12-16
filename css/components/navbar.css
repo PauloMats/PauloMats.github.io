@@ -7,6 +7,67 @@
     background-color: antiquewhite;
 }
 
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem; 
+}
+
+.language-dropdown {
+  position: relative;
+}
+
+.language-dropdown button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.language-dropdown img {
+  width: 20px; 
+  height: 15px;
+  display: inline-block;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%; 
+  left: 0; 
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0.5rem 0;
+  width: auto;
+}
+
+.dropdown.hidden {
+  display: none;
+}
+
+.dropdown li {
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.flag-img {
+  width: 15px;
+  height: 10px;
+}
+
+.dropdown li:hover {
+  background: #f0f0f0;
+}
+
+#language-toggle-button {
+  margin-right: auto; 
+}
+
 .navbar .navbar__content {
     padding: 3rem 4rem 1rem;
     display: flex;
