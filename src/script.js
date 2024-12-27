@@ -7,7 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const languageToggleButton = document.getElementById('language-toggle-button');
   const languageIcon = document.getElementById('language-icon');
   const languageOptions = document.getElementById('language-options');
-
+  
+  document.getElementById("language-toggle-button").addEventListener("click", function () {
+    const dropdown = document.getElementById("language-options");
+    dropdown.style.display = dropdown.style.display === "none" || dropdown.style.display === "" ? "block" : "none";
+  });
   // Alternar o menu mobile
   button.addEventListener('click', function () {
     mobileNavbar.classList.toggle('active');

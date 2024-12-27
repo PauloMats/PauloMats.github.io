@@ -48,16 +48,21 @@
           </ul>
         </div>
       </div>
-      <div class="language-dropdown">
-        <button id="language-toggle-button" class="btn">
-          <img id="language-icon" src="/assets/flag-pt.png" alt="Português">
+      <div class="language-dropdown" style="position: relative; display: inline-block;">
+        <button id="language-toggle-button" class="btn" style="border: none; background: none; cursor: pointer;">
+          <img id="language-icon" src="/assets/flag-pt.png" alt="Português" style="width: 24px; height: 16px; margin-left: -250%;">
         </button>
-        <ul id="language-options" class="dropdown hidden">
-          <li data-lang="pt"><img src="/assets/flag-pt.png" alt="Português" class="flag-img"> Português</li>
-          <li data-lang="en"><img src="/assets/flag-us.png" alt="English" class="flag-img"> English</li>
-          <li data-lang="es"><img src="/assets/flag-es.png" alt="Español" class="flag-img"> Español</li>
+        <ul id="language-options" class="dropdown hidden" style="list-style: none; margin-left: -250%; padding: 0; position: absolute; background-color: #2b2b2bbe; border: 1px solid #ccc; width: 150px; display: none;">
+          <li data-lang="pt" style="padding: 8px; display: flex; align-items: center; cursor: pointer;">
+            <img src="/assets/flag-pt.png" alt="Português" class="flag-img" style="width: 24px; height: 16px; margin-right: 18px;"> Português
+          </li>
+          <li data-lang="en" style="padding: 8px; display: flex; align-items: center; cursor: pointer;">
+            <img src="/assets/flag-en.png" alt="English" class="flag-img" style="width: 24px; height: 16px; margin-right: 18px;"> English
+          </li>
+          <li data-lang="es" style="padding: 8px; display: flex; align-items: center; cursor: pointer;">
+            <img src="/assets/flag-es.png" alt="Español" class="flag-img" style="width: 24px; height: 16px; margin-right: 18px;"> Español
+          </li>
         </ul>
-      </div>
       <button id="theme-toggle-button" class="btn">
         <img id="theme-icon" src="/assets/light-icon.png" alt="Light Mode Icon">
       </button>

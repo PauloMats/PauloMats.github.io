@@ -20,7 +20,7 @@ html {
   width: 60px; /* Ajuste conforme o tamanho desejado */
   height: 30px;
   margin-top: 3%;
- margin-left: 95%;
+ margin-left: -80%;
 }
 
 .error-message {
