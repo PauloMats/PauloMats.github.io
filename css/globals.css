@@ -51,6 +51,46 @@ html {
   left: 0;
 }
 
+.carousel-container {
+  margin: 6rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  gap: 2rem;
+  transition: transform 0.2s linear;
+}
+
+.carousel-item {
+  min-width: 300px; 
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.carousel-item img {
+  width: 100%;
+  max-width: 250px; 
+  height: auto;
+  border-radius: 10px;
+}
+
+.carousel-item h3 {
+  margin-top: 1rem;
+  font-size: 1.6rem;
+  color: var(--text-color);
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
 
 body {
   font-family: var(--font-family);

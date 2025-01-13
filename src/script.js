@@ -76,6 +76,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Carrosséis (Tecnologias e Certificados)
+  const carousels = document.querySelectorAll('.carousel');
+
+  carousels.forEach((carousel) => {
+    const items = carousel.querySelectorAll('.carousel-item');
+    const itemWidth = items[0].offsetWidth + 20; // Largura do item + gap
+    let scrollPosition = 0;
+
+    // Duplicar os itens para o efeito de loop contínuo
+    carousel.innerHTML += carousel.innerHTML;
+
+    // Função para mover o carrossel
+    function moveCarousel() {
+      scrollPosition += 2; // Velocidade de rolagem
+      if (scrollPosition >= items.length * itemWidth) {
+        scrollPosition = 0; // Reseta a posição ao final
+      }
+      carousel.style.transform = `translateX(-${scrollPosition}px)`; // Aplica a transformação
+      requestAnimationFrame(moveCarousel); // Chama a função novamente
+    }
+
+    moveCarousel(); // Inicia o movimento
+  });
+
+
   // Atualizar o conteúdo da página
   const updateContent = (language) => {
     const translations = {
