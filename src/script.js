@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mobileNavbar.classList.contains('active')) {
       button.src = "assets/fechar.png"; // Ícone para "X"
     } else {
-      button.src = "assets/menu.svg"; // Ícone do menu
+      button.src = "assets/menu.png"; // Ícone do menu
     }
   });
 
