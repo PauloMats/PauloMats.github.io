@@ -49,33 +49,35 @@
           </ul>
         </div>
       </div>
-      <div class="language-dropdown" style="position: relative; display: inline-block;">
-        <button id="language-toggle-button" class="btn" style="border: none; background: none; cursor: pointer;">
-          <img id="language-icon" src="/assets/flag-pt.png" alt="Português" style="width: 24px; height: 16px; margin-left: -250%;">
+      <div class="language-dropdown">
+        <button id="language-toggle-button" class="btn">
+          <img id="language-icon" src="/assets/flag-pt.png" alt="Português" class="language-flag" />
         </button>
-        <ul id="language-options" class="dropdown hidden" style="list-style: none; margin-left: -250%; padding: 0; position: absolute; background-color: #2b2b2bbe; border: 1px solid #ccc; width: 150px; display: none;">
-          <li data-lang="pt" style="padding: 8px; display: flex; align-items: center; cursor: pointer;">
-            <img src="/assets/flag-pt.png" alt="Português" class="flag-pt" style="width: 24px; height: 16px; margin-left: 75px; margin-top: 10px;"> PT-BR
+        <ul id="language-options" class="dropdown hidden">
+          <li data-lang="pt">
+            <img src="/assets/flag-pt.png" alt="Português" /> PT-BR
           </li>
-          <li data-lang="en" style="padding: 8px; display: flex; align-items: center; cursor: pointer;">
-            <img src="/assets/flag-en.png" alt="English" class="flag-en" style="width: 24px; height: 16px; margin-left: 75px; margin-top: 45px;"> English
+          <li data-lang="en">
+            <img src="/assets/flag-en.png" alt="English" /> English
           </li>
-          <li data-lang="es" style="padding: 8px; display: flex; align-items: center; cursor: pointer;">
-            <img src="/assets/flag-es.png" alt="Español" class="flag-es" style="width: 24px; height: 16px; margin-left: 75px; margin-top: 80px;"> Español
+          <li data-lang="es">
+            <img src="/assets/flag-es.png" alt="Español" /> Español
           </li>
         </ul>
-      <button id="theme-toggle-button" class="btn">
-        <img id="theme-icon" src="/assets/light-icon.png" alt="Light Mode Icon">
-      </button>
+        <button id="theme-toggle-button" class="btn">
+          <img id="theme-icon" src="/assets/light-icon.png" alt="Light Mode Icon" />
+        </button>
+      </div>
     </nav>
-
+  
     <!-- header -->
     <header id="header" class="max-width">
       <div class="header__left">
         <h1>Olá! Sou Paulo, Desenvolvedor Web Full Stack</h1>
         <p id="header-description">
-          Desenvolvedor Full Stack com experiência em <b>front-end e back-end</b>, especializado em criar soluções seguras e escaláveis. Atualmente, estou expandindo meus 
-          conhecimentos através da Graduação em <b>Engenharia de Software</b> e de um curso em <b>cibersegurança</b> para aplicar boas práticas em todo o ciclo de desenvolvimento.
+          Desenvolvedor Full Stack com experiência em <b>front-end e back-end</b>, especializado em criar soluções seguras e escaláveis.
+          Atualmente, estou expandindo meus conhecimentos através da Graduação em <b>Engenharia de Software</b> e de um curso em <b>cibersegurança</b>
+          para aplicar boas práticas em todo o ciclo de desenvolvimento.
         </p>
         <a href="#about" class="btn btn-primary">Saiba Mais!</a>
       </div>
@@ -85,6 +87,7 @@
           <img src="assets/abstract.svg" alt="background" class="background" />
         </div>
       </div>
+      
     </header>
 
     <section id="technologies-carousel" class="carousel-container">
@@ -168,6 +171,18 @@
         </div>
       </div>
     </section>
+
+    <!-- Vídeo de apresentação -->
+    <div class="video-container">
+      <iframe
+        id="presentation-video"
+        src="https://www.youtube.com/embed/-LqRoHBVJoM?autoplay=0&mute=1"
+        title="Vídeo de Apresentação"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+      ></iframe>
+    </div>
     
     <!-- Sobre -->
     <section id="about" class="about max-width">

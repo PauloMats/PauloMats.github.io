@@ -8,10 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const languageIcon = document.getElementById('language-icon');
   const languageOptions = document.getElementById('language-options');
   
-  document.getElementById("language-toggle-button").addEventListener("click", function () {
-    const dropdown = document.getElementById("language-options");
-    dropdown.style.display = dropdown.style.display === "none" || dropdown.style.display === "" ? "block" : "none";
+  languageToggleButton.addEventListener('click', () => {
+    languageOptions.classList.toggle('active'); // Alterna a visibilidade da lista
   });
+  
+  // Fecha o menu dropdown ao clicar fora dele
+  document.addEventListener('click', (event) => {
+    if (!languageToggleButton.contains(event.target) && !languageOptions.contains(event.target)) {
+      languageOptions.classList.remove('active'); // Garante que o menu feche
+    }
+  });
+  
   // Alternar o menu mobile
   button.addEventListener('click', function () {
     mobileNavbar.classList.toggle('active');
@@ -69,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('language', selectedLang);
 
       // Fechar o dropdown
-      languageOptions.classList.add('hidden');
+      languageOptions.classList.remove('active');
 
       // Atualizar o conteúdo da página
       updateContent(selectedLang);
