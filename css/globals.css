@@ -349,6 +349,57 @@ p:not(:last-of-type),
   background-color: var(--navbar-bg);
 }
 
+/* Alternando as cores de fundo das LI no campo de Projetos */
+.projects ul li:nth-child(odd) {
+  background-color: #f0f0f0; /* Cor de fundo mais clara (para dark mode) */
+}
+
+.projects ul li:nth-child(even) {
+  background-color: #d3d3d3; /* Cor de fundo mais escura (para light mode) */
+}
+
+/* Estilos para os ícones de tecnologias utilizadas nos projetos */
+.skills__item img,
+.projects__info .tech-icons img {
+  border-radius: 50%; /* Tornando as imagens circulares */
+  width: 30px; /* Ajuste do tamanho da imagem */
+  height: 30px;
+  margin-right: 10px; /* Espaço entre as imagens */
+}
+
+/* Melhorando os botões para "Código GitHub" e "Site Funcional" */
+.projects__info a {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px 0;
+  text-decoration: none;
+  color: white;
+  background-color: #4CAF50; /* Cor de fundo do botão */
+  border-radius: 25px; /* Bordas arredondadas */
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.projects__info a:hover {
+  background-color: #45a049; /* Cor mais escura no hover */
+}
+
+/* Adicionando flexbox para as tecnologias na descrição do projeto */
+.projects__info .tech-icons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.projects__info .tech-icons span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+
 #theme-toggle-button img {
   width: 60px; 
   height: 30px;
