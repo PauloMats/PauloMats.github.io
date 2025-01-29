@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const languageToggleButton = document.getElementById('language-toggle-button');
   const languageIcon = document.getElementById('language-icon');
   const languageOptions = document.getElementById('language-options');
+  const emBreveButtons = document.querySelectorAll('.not-finished');
+  const errorMessage = document.getElementById('error-message');
   
   languageToggleButton.addEventListener('click', () => {
     languageOptions.classList.toggle('active'); // Alterna a visibilidade da lista
@@ -107,6 +109,21 @@ document.addEventListener('DOMContentLoaded', () => {
     moveCarousel(); // Inicia o movimento
   });
 
+  // Para cada botão "Em Breve", adiciona o evento de clique
+  emBreveButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+      event.preventDefault(); // Previne a ação padrão do link (rolar para o topo)
+
+      // Exibe a mensagem de erro
+      errorMessage.textContent = 'Ops! Esse site ou vídeo demonstrativo ainda não foi finalizadao!';
+      errorMessage.style.display = 'block'; // Torna a mensagem visível
+
+      // Esconde a mensagem após 5 segundos
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+      }, 5000);
+    });
+  });
 
   // Atualizar o conteúdo da página
   const updateContent = (language) => {

@@ -20,26 +20,24 @@ html {
   width: 60px; /* Ajuste conforme o tamanho desejado */
   height: 30px;
   margin-top: 3%;
- margin-left: -80%;
+  margin-left: -90%;
 }
 
-.error-message {
-  display: none; /* Oculto por padrão */
-  padding: 10px;
-  margin: 0;
-  border: 1px solid red;
-  background-color: #f8d7da;
-  color: #721c24;
-  border-radius: 5px;
-  font-size: 18px;
-  position: fixed; /* Fixo para centralizar em relação à janela */
-  top: 50%; /* Centralizado verticalmente */
-  left: 50%; /* Centralizado horizontalmente */
-  transform: translate(-50%, -50%); /* Ajuste para centralizar */
-  z-index: 9999; /* Certifique-se de que a mensagem esteja acima de outros elementos */
-  max-width: 80%; /* Para evitar que a mensagem seja muito larga */
+/* Estilo para a mensagem de erro */
+#error-message {
+  display: none; /* Inicialmente invisível */
+  background-color: #ff2718; /* Cor de fundo vermelha para erro */
+  color: white; /* Texto branco */
+  padding: 15px; /* Espaçamento interno */
   text-align: center; /* Centraliza o texto */
+  border-radius: 5px; /* Bordas arredondadas */
+  position: fixed; /* Fixa a posição */
+  top: 20px; /* Distância do topo */
+  left: 50%; /* Centraliza na tela */
+  transform: translateX(-50%); /* Ajusta o deslocamento para o centro */
+  z-index: 1000; /* Garante que fique visível acima de outros elementos */
 }
+
 
 .language-dropdown {
   position: relative;
@@ -351,11 +349,21 @@ p:not(:last-of-type),
 
 /* Alternando as cores de fundo das LI no campo de Projetos */
 .projects ul li:nth-child(odd) {
-  background-color: #f0f0f0; /* Cor de fundo mais clara (para dark mode) */
+  background-color: var(--background-color);
+  width: 90%; /* Definindo o tamanho do quadrado */
+  margin: -10px auto; 
+  margin-top: 50px;
+  margin-bottom: 50px; 
+  border-radius: 20px; /* Bordas arredondadas */
 }
 
 .projects ul li:nth-child(even) {
-  background-color: #d3d3d3; /* Cor de fundo mais escura (para light mode) */
+  background-color: var(--background-color); /* Cor de fundo mais escura */
+  width: 90%; /* Definindo o tamanho do quadrado */
+  margin-top: 50px;
+  margin-bottom: 50px; 
+  margin: -10px auto; 
+  border-radius: 20px; /* Bordas arredondadas */
 }
 
 /* Estilos para os ícones de tecnologias utilizadas nos projetos */
@@ -367,23 +375,7 @@ p:not(:last-of-type),
   margin-right: 10px; /* Espaço entre as imagens */
 }
 
-/* Melhorando os botões para "Código GitHub" e "Site Funcional" */
-.projects__info a {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 10px 0;
-  text-decoration: none;
-  color: white;
-  background-color: #4CAF50; /* Cor de fundo do botão */
-  border-radius: 25px; /* Bordas arredondadas */
-  font-weight: bold;
-  text-align: center;
-  transition: background-color 0.3s ease;
-}
 
-.projects__info a:hover {
-  background-color: #45a049; /* Cor mais escura no hover */
-}
 
 /* Adicionando flexbox para as tecnologias na descrição do projeto */
 .projects__info .tech-icons {
@@ -397,6 +389,25 @@ p:not(:last-of-type),
   align-items: center;
   justify-content: center;
   margin-right: 10px;
+}
+
+/* Estilo para as imagens de botões */
+.button-image {
+  width: 200px;  /* Ajuste o tamanho conforme necessário */
+  height: auto;  /* Mantém a proporção da imagem */
+  margin: 5px 0;
+  transition: transform 0.3s ease; /* Suaviza o efeito de zoom */
+}
+
+.button-link {
+  display: inline-block;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-right: 10px; 
+}
+
+.button-link:hover .button-image {
+  transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
 }
 
 
@@ -423,10 +434,6 @@ p:not(:last-of-type),
     margin-left: -10%;
   }
 
-  ul {
-    margin-left:  20%;
-  }
-
 
   #theme-toggle-button img {
     width: 60px; 
@@ -436,6 +443,10 @@ p:not(:last-of-type),
   }
   #theme-toggle-button {
     background-color: var(--navbar-bg);
+  }
+  .navbar .navbar__content{
+    margin-right: 30px;
+    margin-left: 175px;
   }
 }
 
@@ -447,8 +458,10 @@ p:not(:last-of-type),
   h1 {
     font-size: 6rem;
   }
-  ul {
-    margin-left:  10%;
+
+  .navbar .navbar__content{
+    margin-right: 30px;
+    margin-left: 75px;
   }
 
   .navbar img {

@@ -79,7 +79,7 @@
   }
   
   .navbar .navbar__content .navbar__links li:not(:last-of-type) {
-    margin-right: 2rem;
+    margin-right: 0rem;
   }
   
   .navbar .navbar__content .navbar__links a {

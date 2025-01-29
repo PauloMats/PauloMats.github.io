@@ -4,7 +4,7 @@
   }
   
   .skills .skills__content {
-    padding: 6rem 4rem;
+    padding: 6rem;
     text-align: center;
   }
   
@@ -35,5 +35,5 @@
   .skills .skills__content ul li h3 {
     font-size: 1.6rem;
     font-weight: 500;
-    margin: 2rem 0 1rem;
+    margin: 2rem;
   }
