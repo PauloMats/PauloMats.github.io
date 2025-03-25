@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const updateContent = (language) => {
     const translations = {
         pt: {
-            header: "Olá! Sou Paulo, Engenheiro de Software Full Stack",
+            header: "Paulo, Engenheiro de Software Full Stack",
             headerDescription:  "Desenvolvedor Full Stack com experiência em front-end e back-end, especializado em criar soluções seguras e escaláveis. Atualmente, estou expandindo meus conhecimentos através da Graduação em Engenharia de Software e do curso Google Cybersecurity Professional Certificate, aplicando práticas como análise de vulnerabilidades, SIEM (Splunk) e compliance LGPD em desenvolvimento.",
             about: "Além do código: quem sou eu?",
             aboutDescription: "Que tal se conectar comigo nas redes sociais abaixo e saber mais sobre meu trabalho?",
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
             footerDescription2: "© 2024 Paulo Mateus. Todos os direitos reservados.",
         },
         en: {
-            header: "Hello! I am Paulo, Software Engineer Full Stack", 
+            header: "Paulo, Software Engineer Full Stack", 
             headerDescription: "Full Stack Developer with experience in front-end and back-end, specialized in creating secure and scalable solutions. Currently, I am expanding my knowledge through a degree in Software Engineering and the Google Cybersecurity Professional Certificate course, applying practices such as vulnerability analysis, SIEM (Splunk) and LGPD compliance in development.",
             about: "Beyond the code: who am I?",
             aboutDescription: "How about connecting with me on the social networks below and learning more about my work?",
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
             footerDescription2: "© 2024 Paulo Mateus. All rights reserved.",
         },
         es: {
-          header: "¡Hola! Soy Paulo, Ingeniero de Software Full Stack",
+          header: "Paulo, Ingeniero de Software Full Stack",
           headerDescription: "Desarrollador Full Stack con experiencia en front-end y back-end, especializado en crear soluciones seguras y escalables. Actualmente, estou expandiendo mis conocimientos a través de la Graduación en Ingeniería de Software y el curso Google Cybersecurity Professional Certificate, aplicando prácticas como análisis de vulnerabilidades , SIEM (Splunk) y cumplimiento LGPD en desarrollo.",
           about: "Más allá del código: ¿Quién soy?",
           aboutDescription: "¿Qué tal si te conectas conmigo en las redes sociales de abajo y aprendes más sobre mi trabajo?",
