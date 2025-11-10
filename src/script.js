@@ -1,34 +1,117 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // --- Elementos Comuns ---
   const navbar = document.querySelector('.navbar');
+  const errorMessage = document.getElementById('error-message');
+  const emBreveButtons = document.querySelectorAll('.not-finished');
+
+  // --- Elementos do Menu Mobile ---
   const mobileNavbar = document.querySelector('.navbar__mobile');
   const button = document.querySelector('.burguer');
+
+  // --- Toggles do Desktop ---
   const themeToggleButton = document.getElementById('theme-toggle-button');
   const themeIcon = document.getElementById('theme-icon');
   const languageToggleButton = document.getElementById('language-toggle-button');
   const languageIcon = document.getElementById('language-icon');
   const languageOptions = document.getElementById('language-options');
-  const emBreveButtons = document.querySelectorAll('.not-finished');
-  const errorMessage = document.getElementById('error-message');
-  
+
+  // --- TGGLES DO MOBILE (NOVOS) ---
+  const themeToggleButtonMobile = document.getElementById('theme-toggle-button-mobile');
+  const themeIconMobile = document.getElementById('theme-icon-mobile');
+  const languageToggleButtonMobile = document.getElementById('language-toggle-button-mobile');
+  const languageIconMobile = document.getElementById('language-icon-mobile');
+  const languageOptionsMobile = document.getElementById('language-options-mobile');
+
+  // --- LÓGICA DO TEMA ---
+  const updateButtonIcon = (theme, isMobile = false) => {
+    const icon = isMobile ? themeIconMobile : themeIcon;
+    if (theme === 'dark') {
+      icon.src = '/assets/dark-icon.png';
+      icon.alt = 'Dark Mode Icon';
+    } else {
+      icon.src = '/assets/light-icon.png';
+      icon.alt = 'Light Mode Icon';
+    }
+  };
+
+  const toggleTheme = () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    // Atualiza AMBOS os ícones
+    updateButtonIcon(newTheme, false); // Desktop
+    updateButtonIcon(newTheme, true); // Mobile
+  };
+
+  // Eventos de Tema
+  themeToggleButton.addEventListener('click', toggleTheme);
+  themeToggleButtonMobile.addEventListener('click', toggleTheme);
+
+  // --- LÓGICA DO IDIOMA ---
+  const handleLanguageChange = (selectedLang, iconElement, optionsElement) => {
+    // Atualizar o ícone e salvar o idioma
+    const selectedOption = optionsElement.querySelector(`[data-lang="${selectedLang}"]`);
+    iconElement.src = selectedOption.querySelector('img').src;
+    iconElement.alt = selectedOption.textContent.trim();
+    localStorage.setItem('language', selectedLang);
+
+    // Fechar o dropdown
+    optionsElement.classList.remove('active');
+
+    // Atualizar o conteúdo da página
+    updateContent(selectedLang);
+  };
+
+  // Eventos de Idioma (Desktop)
   languageToggleButton.addEventListener('click', () => {
-    languageOptions.classList.toggle('active'); // Alterna a visibilidade da lista
+    languageOptions.classList.toggle('active');
   });
-  
-  // Fecha o menu dropdown ao clicar fora dele
-  document.addEventListener('click', (event) => {
-    if (!languageToggleButton.contains(event.target) && !languageOptions.contains(event.target)) {
-      languageOptions.classList.remove('active'); // Garante que o menu feche
+  languageOptions.addEventListener('click', (e) => {
+    const selectedOption = e.target.closest('li');
+    if (selectedOption) {
+      handleLanguageChange(selectedOption.dataset.lang, languageIcon, languageOptions);
+      // Sincroniza o ícone mobile
+      languageIconMobile.src = selectedOption.querySelector('img').src;
     }
   });
-  
-  // Alternar o menu mobile
+
+  // Eventos de Idioma (Mobile)
+  languageToggleButtonMobile.addEventListener('click', () => {
+    languageOptionsMobile.classList.toggle('active');
+  });
+  languageOptionsMobile.addEventListener('click', (e) => {
+    const selectedOption = e.target.closest('li');
+    if (selectedOption) {
+      handleLanguageChange(selectedOption.dataset.lang, languageIconMobile, languageOptionsMobile);
+      // Sincroniza o ícone desktop
+      languageIcon.src = selectedOption.querySelector('img').src;
+    }
+  });
+
+  // Fecha o menu dropdown ao clicar fora dele
+  document.addEventListener('click', (event) => {
+    if (
+      !languageToggleButton.contains(event.target) &&
+      !languageOptions.contains(event.target)
+    ) {
+      languageOptions.classList.remove('active');
+    }
+    if (
+      !languageToggleButtonMobile.contains(event.target) &&
+      !languageOptionsMobile.contains(event.target)
+    ) {
+      languageOptionsMobile.classList.remove('active');
+    }
+  });
+
+  // --- LÓGICA DO MENU MOBILE ---
   button.addEventListener('click', function () {
     mobileNavbar.classList.toggle('active');
-
     if (mobileNavbar.classList.contains('active')) {
-      button.src = "assets/fechar.png"; // Ícone para "X"
+      button.src = 'assets/fechar.png'; // Ícone para "X"
     } else {
-      button.src = "assets/menu.png"; // Ícone do menu
+      button.src = 'assets/menu.png'; // Ícone do menu
     }
   });
 
@@ -41,101 +124,63 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Função para alternar o tema
-  const toggleTheme = () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateButtonIcon(newTheme);
-  };
-
-  // Atualizar o ícone do botão de tema
-  const updateButtonIcon = (theme) => {
-    if (theme === 'dark') {
-      themeIcon.src = '/assets/dark-icon.png';
-      themeIcon.alt = 'Dark Mode Icon';
-    } else {
-      themeIcon.src = '/assets/light-icon.png';
-      themeIcon.alt = 'Light Mode Icon';
-    }
-  };
-
-  // Alternar o idioma
-  languageToggleButton.addEventListener('click', () => {
-    languageOptions.classList.toggle('hidden');
-  });
-
-  // Alterar o idioma ao clicar em uma opção
-  languageOptions.addEventListener('click', (e) => {
-    if (e.target.tagName === 'LI' || e.target.closest('li')) {
-      const selectedOption = e.target.closest('li');
-      const selectedLang = selectedOption.dataset.lang;
-
-      // Atualizar o ícone e salvar o idioma
-      languageIcon.src = selectedOption.querySelector('img').src;
-      languageIcon.alt = selectedOption.textContent.trim();
-      localStorage.setItem('language', selectedLang);
-
-      // Fechar o dropdown
-      languageOptions.classList.remove('active');
-
-      // Atualizar o conteúdo da página
-      updateContent(selectedLang);
-    }
-  });
-
-  // Carrosséis (Tecnologias e Certificados)
+  // --- Carrosséis (Tecnologias e Certificados) ---
   const carousels = document.querySelectorAll('.carousel');
-
   carousels.forEach((carousel) => {
-    const items = carousel.querySelectorAll('.carousel-item');
-    const itemWidth = items[0].offsetWidth + 20; // Largura do item + gap
-    let scrollPosition = 0;
+    if (!carousel.classList.contains('carousel-initialized')) {
+      carousel.classList.add('carousel-initialized');
+      const items = carousel.querySelectorAll('.carousel-item');
+      if (items.length === 0) return; // Pula se não houver itens
 
-    // Duplicar os itens para o efeito de loop contínuo
-    carousel.innerHTML += carousel.innerHTML;
+      const itemWidth = items[0].offsetWidth + 20; // Largura do item + gap
+      let scrollPosition = 0;
 
-    // Função para mover o carrossel
-    function moveCarousel() {
-      scrollPosition += 2; // Velocidade de rolagem
-      if (scrollPosition >= items.length * itemWidth) {
-        scrollPosition = 0; // Reseta a posição ao final
+      // Duplicar os itens para o efeito de loop contínuo
+      carousel.innerHTML += carousel.innerHTML;
+
+      // Função para mover o carrossel
+      function moveCarousel() {
+        scrollPosition += 5; // Velocidade do carrossel
+        if (scrollPosition >= items.length * itemWidth) {
+          scrollPosition = 0; // Reseta a posição ao final
+        }
+        carousel.style.transform = `translateX(-${scrollPosition}px)`;
+        requestAnimationFrame(moveCarousel);
       }
-      carousel.style.transform = `translateX(-${scrollPosition}px)`; // Aplica a transformação
-      requestAnimationFrame(moveCarousel); // Chama a função novamente
+      moveCarousel(); // Inicia o movimento
     }
-
-    moveCarousel(); // Inicia o movimento
   });
 
-  // Para cada botão "Em Breve", adiciona o evento de clique
-  emBreveButtons.forEach(button => {
+  // --- Mensagem de Erro (Botões "Em Breve") ---
+  emBreveButtons.forEach((button) => {
     button.addEventListener('click', (event) => {
-      event.preventDefault(); // Previne a ação padrão do link (rolar para o topo)
-
-      // Exibe a mensagem de erro
-      errorMessage.textContent = 'Ops! Esse site ou vídeo demonstrativo ainda não foi finalizadao!';
-      errorMessage.style.display = 'block'; // Torna a mensagem visível
-
-      // Esconde a mensagem após 5 segundos
+      event.preventDefault();
+      errorMessage.textContent =
+        'Ops! Esse site ou vídeo demonstrativo ainda não foi finalizado!';
+      errorMessage.style.display = 'block';
       setTimeout(() => {
         errorMessage.style.display = 'none';
       }, 5000);
     });
   });
 
-  // Atualizar o conteúdo da página
+  // Conteúdo de traduções da página
   const updateContent = (language) => {
     const translations = {
         pt: {
-            header: "Paulo, Engenheiro de Software Full Stack",
-            headerDescription:  "Desenvolvedor Full Stack com experiência em front-end e back-end, especializado em criar soluções seguras e escaláveis. Atualmente, estou expandindo meus conhecimentos através da Graduação em Engenharia de Software e do curso Google Cybersecurity Professional Certificate, aplicando práticas como análise de vulnerabilidades, SIEM (Splunk) e compliance LGPD em desenvolvimento.",
+            header: "Paulo, Engenheiro de Software Sênior",
+            headerDescription:  "Desenvolvedor Full Stack Sênior, com foco em React, Next.js, Node.js e TypeScript, e mais de 4 anos de experiência criando soluções escaláveis e acessíveis. Atuei como Frontend Sênior em projeto internacional para a CP – Comboios de Portugal, pela Inetum, lidando com alto volume de usuários, PWA, cache offline e padrões de acessibilidade (WCAG).",
             about: "Além do código: quem sou eu?",
             aboutDescription: "Que tal se conectar comigo nas redes sociais abaixo e saber mais sobre meu trabalho?",
-            aboutDescription2: "Especialista em Kotlin para Android, já desenvolvi apps nativos para gestão de dispositivos IoT e integração com APIs REST seguras. Minha experiência em Node.js (Nest.js) e React/Next.js me permite criar soluções completas, desde o back-end até interfaces responsivas, sempre aplicando princípios de segurança como criptografia de dados e autenticação robusta.",
+            aboutDescription2: "Tenho forte atuação em Clean Code, Clean Architecture, DevSecOps e CI/CD, além de experiência em design e UX, o que me ajuda a criar interfaces funcionais e bem pensadas. Curto trabalhar em equipes ágeis, contribuir com padrões de código, revisar PRs e otimizar performance front-end (Lighthouse 90+). Fora do código, gosto de estudar cibersegurança e desenvolvimento mobile com Kotlin — e acredito que a melhor forma de crescer é compartilhar conhecimento e aprender continuamente com o time.",
             aboutDescription3: "Eu amo o desafio de buscar soluções inovadoras e criativas para problemas complexos e estou sempre disposto a aprender e crescer como profissional.",
             skills: "Minha caixinha de ferramentas",
+            experienceTitle: "Experiência Profissional",
+            experienceDescription: "Projetos corporativos nos quais trabalhei, aplicando minhas habilidades em ambientes de produção em larga escala.",
+            expCpDesc1: "Atuei como Desenvolvedor Frontend Sênior em um projeto internacional (via Inetum) para a principal empresa ferroviária estatal de Portugal, atendendo a mais de 1 milhão de usuários ativos.",
+            expCpDesc2: "Responsável pela construção de aplicações PWA (Lighthouse 90+) com cache dinâmico, desenvolvimento de componentes escaláveis em React + TypeScript com foco em acessibilidade (WCAG), integração de APIs REST, implementação de testes (Jest) e configuração de pipelines CI/CD.",
+            expBdmDesc: "Desenvolvimento de funcionalidades front-end para o site institucional do BDMBank, utilizando Typescript, React, Taillwind CSS para criar uma experiência de usuário moderna e responsiva.",
+            expDouradoDesc: "Desenvolvimento de funcionalidades front-end para o site institucional do Dourado Cash, utilizando Typescript, React, Taillwind CSS para criar uma experiência de usuário moderna e responsiva.",
             skillsDescription: "Experiência em desenvolvimento fullstack com foco em tecnologias modernas.",
             skillsDescription2: "Habilidade em criar layouts modernos e responsivos, com foco na experiência do usuário.",
             skillsDescription3: "Implementação de práticas secure-by-design, análise de logs com SIEM, e testes básicos de vulnerabilidade em APIs/apps.",
@@ -147,16 +192,24 @@ document.addEventListener('DOMContentLoaded', () => {
             projectDescription5: "O Password Manager é um projeto que utiliza React, Redux, Context API, Hooks e muito mais. Ele consiste em um gerenciador de senhas, onde o usuário pode salvar suas senhas de forma segura e organizada.",
             projectDescription6: "Nosso primeiro projeto na Trybe, o Pixels Art é um projeto que utiliza HTML, CSS e JavaScript. Ele consiste em um quadro de pixels, onde o usuário pode escolher a cor e pintar os pixels, criando desenhos incríveis.",
             footerDescription: "Ficarei feliz em saber mais sobre seus projetos e como podemos trabalhar juntos para torná-los realidade.",
-            footerDescription2: "© 2024 Paulo Mateus. Todos os direitos reservados.",
+            footerDescription2: "© 2025 Paulo Mateus. Todos os direitos reservados.",
+            resumeLinkText: "Currículo PTBR",
+            resumeLinkFile: "assets/Paulo_Currículo_Dev_Senior_Full_Stack.pdf",
         },
         en: {
-            header: "Paulo, Software Engineer Full Stack", 
-            headerDescription: "Full Stack Developer with experience in front-end and back-end, specialized in creating secure and scalable solutions. Currently, I am expanding my knowledge through a degree in Software Engineering and the Google Cybersecurity Professional Certificate course, applying practices such as vulnerability analysis, SIEM (Splunk) and LGPD compliance in development.",
+            header: "Paulo, Senior Software Engineer", 
+            headerDescription: "Senior Full Stack Developer, focused on React, Next.js, Node.js, and TypeScript, with over 4 years of experience creating scalable and accessible solutions. I worked as a Senior Frontend Developer on an international project for CP – Comboios de Portugal, through Inetum, handling high user volume, PWA, offline caching, and accessibility standards (WCAG).",
             about: "Beyond the code: who am I?",
             aboutDescription: "How about connecting with me on the social networks below and learning more about my work?",
-            aboutDescription2: "Expert in Kotlin for Android, I have developed native apps for IoT device management and integration with secure REST APIs. My experience in Node.js (Nest.js) and React/Next.js allows me to create complete solutions, from the backend to responsive interfaces, always applying security principles such as data encryption and strong authentication.",
+            aboutDescription2: "I have a strong background in Clean Code, Clean Architecture, DevSecOps, and CI/CD, as well as experience in design and UX, which helps me create functional and well-thought-out interfaces. I enjoy working in agile teams, contributing to coding standards, reviewing PRs, and optimizing front-end performance (Lighthouse 90+). Outside of code, I enjoy studying cybersecurity and mobile development with Kotlin — and I believe that the best way to grow is to share knowledge and continuously learn with the team.",
             aboutDescription3: "I love the challenge of finding innovative and creative solutions to complex problems and am always eager to learn and grow as a professional.",
             skills: "My toolbox",
+            experienceTitle: "Professional Experience",
+            experienceDescription: "Corporate projects where I've worked, applying my skills in large-scale production environments.",
+            expCpDesc1: "Worked as a Senior Frontend Developer on an international project (via Inetum) for Portugal's main state-owned railway company, serving over 1 million active users.",
+            expCpDesc2: "Responsible for building PWA applications (Lighthouse 90+) with dynamic caching, developing scalable components in React + TypeScript focusing on accessibility (WCAG), integrating REST APIs, implementing tests (Jest), and configuring CI/CD pipelines.",
+            expBdmDesc: "Development of front-end features for the institutional website of BDMBank, using Typescript, React, Tailwind CSS to create a modern and responsive user experience.",
+            expDouradoDesc: "Development of front-end features for the institutional website of Dourado Cash, using Typescript, React, Tailwind CSS to create a modern and responsive user experience.",
             skillsDescription: "Experience in fullstack development focused on modern technologies.",
             skillsDescription2: "Skilled in creating modern, responsive layouts with a focus on user experience.",
             skillsDescription3: "Implementation of secure-by-design practices, log analysis with SIEM, and basic vulnerability testing in APIs/apps.",
@@ -168,7 +221,9 @@ document.addEventListener('DOMContentLoaded', () => {
             projectDescription5: "Password Manager uses React, Redux, Context API, Hooks to allow users to store passwords securely.",
             projectDescription6: "Pixels Art is a project utilizing HTML, CSS, and JavaScript to create pixel-based drawings.",
             footerDescription: "I would be happy to learn about your projects and explore how we can work together.",
-            footerDescription2: "© 2024 Paulo Mateus. All rights reserved.",
+            footerDescription2: "© 2025 Paulo Mateus. All rights reserved.",
+            resumeLinkText: "Resume English",
+            resumeLinkFile: "assets/Paulo_Resume_Senior_Software_Engineer.pdf",
         },
         es: {
           header: "Paulo, Ingeniero de Software Full Stack",
@@ -178,6 +233,12 @@ document.addEventListener('DOMContentLoaded', () => {
           aboutDescription2: "Experto en Kotlin para Android, he desarrollado aplicaciones nativas para gestionar dispositivos IoT e integrarlas con API REST seguras. Mi experiencia en Node.js (Nest.js) y React/Next.js me permite crear soluciones completas, desde el backend hasta interfaces responsive, aplicando siempre principios de seguridad como encriptación de datos y autenticación fuerte.",
           aboutDescription3: "Me encanta el desafío de encontrar soluciones innovadoras y creativas para problemas complejos y siempre estoy dispuesto a aprender y crecer como profesional.",
           skills: "Mi caja de herramientas",
+          experienceTitle: "Experiencia Profesional",
+          experienceDescription: "Proyectos corporativos en los que he trabajado, aplicando mis habilidades en entornos de producción a gran escala.",
+          expCpDesc1: "Actuación como Frontend Senior en un proyecto internacional (vía Inetum) para la principal empresa estatal de transporte ferroviario de Portugal, atendiendo a más de 1 millón de usuarios activos.",
+          expCpDesc2: "Responsable de construir aplicaciones PWA (Lighthouse 90+) con caché dinámico, desarrollar componentes escalables en React + TypeScript con enfoque en accesibilidad (WCAG), integrar APIs REST, implementar pruebas (Jest) y configurar pipelines de CI/CD.",
+          expBdmDesc: "Desarrollo de funcionalidades front-end para el sitio institucional del BDMBank, utilizando Typescript, React, Taillwind CSS para crear una experiencia de usuario moderna y responsiva.",
+          expDouradoDesc: "Desarrollo de funcionalidades front-end para el sitio institucional del Dourado Cash, utilizando Typescript, React, Taillwind CSS para crear una experiencia de usuario moderna y responsiva.",
           skillsDescription: "Experiencia en desarrollo fullstack con enfoque en tecnologías modernas.",
           skillsDescription2: "Habilidad para crear diseños modernos y responsivos, enfocados en la experiencia del usuario.",
           skillsDescription3: "Implementación de prácticas secure-by-design, análisis de logs con SIEM y pruebas básicas de vulnerabilidad en APIs/aplicaciones.",
@@ -189,11 +250,13 @@ document.addEventListener('DOMContentLoaded', () => {
           projectDescription5: "Password Manager es un proyecto que utiliza React, Redux, Context API, Hooks y más. Es un gestor de contraseñas que permite a los usuarios almacenar sus contraseñas de forma segura y organizada.",
           projectDescription6: "Pixels Art es un proyecto que utiliza HTML, CSS y JavaScript. Consiste en un tablero de píxeles donde el usuario puede elegir colores y pintar píxeles, creando dibujos increíbles.",
           footerDescription: "Me encantaría saber más sobre tus proyectos y cómo podemos trabajar juntos para hacerlos realidad.",
-          footerDescription2: "© 2024 Paulo Mateus. Todos los derechos reservados.",
+          footerDescription2: "© 2025 Paulo Mateus. Todos los derechos reservados.",
+          resumeLinkText: "Currículo en Español",
+          resumeLinkFile: "assets/Paulo_Curriculum_Dev_Senior_Full_Stack_ES.pdf",
       }
     };
 
-    // Atualizando elementos do DOM
+    // Elementos do DOM
     document.querySelector('#header h1').textContent = translations[language].header;
     document.querySelector('#header-description').textContent = translations[language].headerDescription;
     document.querySelector('#about h2').textContent = translations[language].about;
@@ -212,18 +275,45 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#project-description-6').textContent = translations[language].projectDescription6;
     document.querySelector('#footer-description').textContent = translations[language].footerDescription;
     document.querySelector('#footer-description2').textContent = translations[language].footerDescription2;
-};
+    document.querySelector('#experience-title').textContent = translations[language].experienceTitle;
+    document.querySelector('#experience-description').textContent = translations[language].experienceDescription;
+    document.querySelector('#exp-cp-desc-p1').textContent = translations[language].expCpDesc1;
+    document.querySelector('#exp-cp-desc-p2').textContent = translations[language].expCpDesc2;
+    document.querySelector('#exp-bdm-desc').textContent = translations[language].expBdmDesc;
+    document.querySelector('#exp-dourado-desc').textContent = translations[language].expDouradoDesc;
+    const langData = translations[language];
+    if (langData) {
+      // Desktop
+      const resumeLink = document.getElementById('resume-link');
+      const resumeLinkText = document.getElementById('resume-link-text');
+      if (resumeLink && resumeLinkText) {
+        resumeLinkText.textContent = langData.resumeLinkText;
+        resumeLink.href = langData.resumeLinkFile;
+      }
+      // Mobile
+      const mobileResumeLink = document.getElementById('mobile-resume-link');
+      const mobileResumeLinkText = document.getElementById('mobile-resume-link-text');
+      if (mobileResumeLink && mobileResumeLinkText) {
+        mobileResumeLinkText.textContent = langData.resumeLinkText;
+        mobileResumeLink.href = langData.resumeLinkFile;
+      }
+    }
+  };
 
+ // --- INICIALIZAÇÃO ---
   // Configurar o idioma salvo
   const savedLanguage = localStorage.getItem('language') || 'pt';
+  const initialLangOption = document.querySelector(`#language-options [data-lang="${savedLanguage}"] img`);
+  if (initialLangOption) {
+    const initialFlagSrc = initialLangOption.src;
+    languageIcon.src = initialFlagSrc;
+    languageIconMobile.src = initialFlagSrc;
+  }
   updateContent(savedLanguage);
-  languageIcon.src = document.querySelector(`#language-options [data-lang="${savedLanguage}"] img`).src;
 
   // Configurar o tema salvo
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
-  updateButtonIcon(savedTheme);
-
-  // Evento de clique no botão de tema
-  themeToggleButton.addEventListener('click', toggleTheme);
+  updateButtonIcon(savedTheme, false); // Desktop
+  updateButtonIcon(savedTheme, true); // Mobile
 });
