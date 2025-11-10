@@ -17,7 +17,7 @@ html {
 }
 
 #theme-toggle-button img {
-  width: 60px; /* Ajuste conforme o tamanho desejado */
+  width: 60px; 
   height: 30px;
   margin-top: 3%;
   margin-left: -90%;
@@ -25,33 +25,33 @@ html {
 
 /* Estilo para a mensagem de erro */
 #error-message {
-  display: none; /* Inicialmente invisível */
-  background-color: #ff2718; /* Cor de fundo vermelha para erro */
-  color: white; /* Texto branco */
-  padding: 15px; /* Espaçamento interno */
-  text-align: center; /* Centraliza o texto */
-  border-radius: 5px; /* Bordas arredondadas */
-  position: fixed; /* Fixa a posição */
-  top: 20px; /* Distância do topo */
-  left: 50%; /* Centraliza na tela */
-  transform: translateX(-50%); /* Ajusta o deslocamento para o centro */
-  z-index: 1000; /* Garante que fique visível acima de outros elementos */
+  display: none; 
+  background-color: #ff2718; 
+  color: white; 
+  padding: 15px; 
+  text-align: center; 
+  border-radius: 5px; 
+  position: fixed; 
+  top: 20px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  z-index: 1000; 
 }
 
 
 .language-dropdown {
   position: relative;
-  display: flex; /* Usa flex para alinhar os elementos horizontalmente */
+  display: flex; 
   align-items: center;
-  gap: 8px; /* Espaço entre a bandeira e o botão de tema */
+  gap: 8px; 
 }
 
 .navbar img {
   padding: 0;
   margin: 0;
-  width: 250px;
-  height: auto; /* mantém a proporção da imagem */
-  position: absolute; /* posiciona a imagem no canto superior */
+  width: 200px;
+  height: auto; 
+  position: absolute; 
   top: 0;
   left: 0;
 }
@@ -67,9 +67,7 @@ html {
   height: 16px;
 }
 
-.language-dropdown img {
-  width: 24px;
-  height: 16px;
+.theme-icon-mobile {
   margin-right: 100px;
 }
 
@@ -81,8 +79,8 @@ html {
   background-color: #2b2b2bbe;
   border: 1px solid #ccc;
   width: 150px;
-  top: 40px; /* Desloca o dropdown abaixo da bandeira */
-  left: 0; /* Alinha o dropdown com a bandeira */
+  top: 40px; 
+  left: 0; 
   display: none;
   z-index: 10;
   border-radius: 5px;
@@ -103,13 +101,12 @@ html {
 
 /* Quando o dropdown estiver ativo */
 .language-dropdown .dropdown.active {
-  display: block; /* Exibe o dropdown quando a classe "active" está presente */
+  display: block; 
   padding: 5px;
   margin-left: -100px;
 }
 
 /* Ajustes específicos para a posição de cada bandeira */
-/* Removido o uso de margens desnecessárias nas bandeiras */
 .language-dropdown .dropdown li:first-child img {
   margin-top: 14px; /* PT-BR */
   margin-left: 90px;
@@ -354,7 +351,7 @@ p:not(:last-of-type),
   margin: -10px auto; 
   margin-top: 50px;
   margin-bottom: 50px; 
-  border-radius: 20px; /* Bordas arredondadas */
+  border-radius: 20px; 
 }
 
 .projects ul li:nth-child(even) {
@@ -363,7 +360,7 @@ p:not(:last-of-type),
   margin-top: 50px;
   margin-bottom: 50px; 
   margin: -10px auto; 
-  border-radius: 20px; /* Bordas arredondadas */
+  border-radius: 20px; 
 }
 
 /* Estilos para os ícones de tecnologias utilizadas nos projetos */
@@ -393,7 +390,7 @@ p:not(:last-of-type),
 /* Estilo para as imagens de botões */
 .button-image {
   width: 200px;  /* Ajuste o tamanho conforme necessário */
-  height: auto;  /* Mantém a proporção da imagem */
+  height: auto;  
   margin: 5px 0;
   transition: transform 0.3s ease; /* Suaviza o efeito de zoom */
 }
@@ -460,15 +457,11 @@ p:not(:last-of-type),
 
   .navbar .navbar__content{
     margin-right: 30px;
-    margin-left: 75px;
   }
 
   .navbar img {
-    padding: 0;
-    margin: 0;
     width: 150px;
-    height: auto; /* mantém a proporção da imagem */
-    position: absolute; /* posiciona a imagem no canto superior */
+    height: auto; 
     top: 30%;
     left: 0;
 }
@@ -511,11 +504,8 @@ p:not(:last-of-type),
   
 
   .navbar img {
-    padding: 0;
-    margin: 0;
     width: 100px;
-    height: auto; /* mantém a proporção da imagem */
-    position: absolute; /* posiciona a imagem no canto superior */
+    height: auto; 
     top: 10%;
     left: 0;
 }
@@ -551,11 +541,8 @@ p:not(:last-of-type),
     font-size: 4.2rem;
   }
   .navbar img {
-    padding: 0;
-    margin: 0;
     width: 100px;
-    height: auto; /* mantém a proporção da imagem */
-    position: absolute; /* posiciona a imagem no canto superior */
+    height: auto; 
     top: 10%;
     left: 0;
   } 
