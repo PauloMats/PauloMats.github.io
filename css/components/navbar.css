@@ -1,159 +1,215 @@
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    background-color: antiquewhite;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: var(--navbar-bg); /* Usa variável de cor */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.navbar__actions {
+.navbar.active {
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.navbar .navbar__content {
+  padding: 1.5rem 4rem; /* Padding vertical reduzido e simétrico */
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.8rem; 
 }
 
+/* --- Links do Desktop --- */
+.navbar .navbar__content .navbar__links {
+  display: flex; /* Alterado de inline-block */
+  align-items: center;
+  gap: 0.5rem; /* Espaçamento leve entre os links */
+}
+
+.navbar .navbar__content .navbar__links li {
+  display: inline-block;
+}
+
+.navbar .navbar__content .navbar__links a {
+  padding: 1rem;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.navbar .navbar__content .navbar__links a:hover {
+  color: var(--secondary-color); /* Usa variável */
+}
+
+/* --- Toggles (Desktop e Mobile) --- */
 .language-dropdown {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 }
 
-.language-dropdown button {
+.language-dropdown .btn {
   border: none;
   background: none;
   cursor: pointer;
   padding: 0;
 }
 
-.language-dropdown img {
-  width: 20px; 
-  height: 15px;
+.language-dropdown img.language-flag {
+  width: 24px; /* Tamanho da bandeira no botão */
+  height: 16px;
   display: inline-block;
 }
 
-.dropdown {
-  position: absolute;
-  top: 100%; 
-  left: 0; 
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+.language-dropdown .dropdown {
   list-style: none;
+  margin: 0;
   padding: 0.5rem 0;
-  width: auto;
+  position: absolute;
+  background-color: var(--background-color); /* Usa variável */
+  border: 1px solid var(--text-color); /* Usa variável */
+  width: 150px;
+  top: 120%; /* Posição abaixo do botão */
+  right: 0; /* Alinha à direita */
+  display: none; /* Começa escondido */
+  z-index: 10;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.dropdown.hidden {
-  display: none;
+.language-dropdown .dropdown.active {
+  display: block; /* Mostra o dropdown */
 }
 
-.dropdown li {
-  padding: 0.4rem 1rem;
-  cursor: pointer;
+.language-dropdown .dropdown li {
+  padding: 0.8rem 1rem;
   display: flex;
   align-items: center;
+  cursor: pointer;
   gap: 0.5rem;
 }
 
-.flag-img {
-  width: 15px;
-  height: 10px;
+.language-dropdown .dropdown li img {
+  width: 24px;
+  height: 16px;
+  margin: 0; /* Remove margens fixas */
 }
 
-.dropdown li:hover {
-  background: #f0f0f0;
+.language-dropdown .dropdown li:hover {
+  background-color: var(--skills-bg); /* Usa variável */
 }
 
-#language-toggle-button {
-  margin-right: auto; 
+/* --- Menu Mobile --- */
+
+/* Esconde o menu mobile no desktop */
+.navbar .navbar__content .navbar__mobile {
+  display: none;
 }
 
-.navbar .navbar__content {
-    padding: 3rem 4rem 1rem;
-    display: flex;
-    justify-content: space-between; 
-}
-
-.navbar .navbar__content .navbar__links li {
-    display: inline-block;
-  }
-  
-  .navbar .navbar__content .navbar__links li:not(:last-of-type) {
-    margin-right: 0rem;
-  }
-  
-  .navbar .navbar__content .navbar__links a {
-    padding: 1rem;
-    display: inline-block;
-  }
-  
-  .navbar .navbar__content .navbar__links a:hover {
-    color: var(--tertiary-color);
-  }
-  
-  .navbar.active {
-    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
-  }
-  
-  .navbar .navbar__content .navbar__mobile,
-  .navbar .navbar__content .navbar__mobile .mobile__links {
+/* Esconde os toggles do desktop no mobile */
+@media only screen and (max-width: 768px) {
+  .navbar .navbar__content .navbar__links {
     display: none;
   }
+
+  .navbar .navbar__content {
+    padding: 1rem 2rem;
+  }
+
+  /* Mostra o menu mobile */
+  .navbar .navbar__content .navbar__mobile {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar .navbar__content .navbar__mobile .burguer {
+    width: 3.2rem;
+    height: 3.2rem;
+    cursor: pointer;
+    z-index: 100; 
+    position: relative; 
+    margin-right: -20px;
+  }
   
-  @media only screen and (max-width: 768px) {
-    .navbar .navbar__content .navbar__links {
-      display: none;
-    }
-  
-    .navbar .navbar__content .navbar__mobile {
-      display: flex;
-      align-items: center;
-    }
-
-    .navbar .navbar__content .navbar-logo {
-      margin-right: auto;
-      margin-top: 1%;
-      margin-left: 8%;
-    }
-
-    .navbar .navbar__content .navbar__mobile img {
-      width: 3.6rem;
-      height: 3.6rem;
-      margin-top: 2%;
-      margin-left: 1%;
-      cursor: pointer;
-    }
-
-    /* Estilo para quando o caractere X estiver visível */
-.burguer {
-  font-size: 24px;
-  color: #333; /* Escolha uma cor que combine com seu design */
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  text-align: center;
+  .navbar .navbar__content .navbar__mobile .mobile__links {
+  display: none;
 }
 
-    .navbar .navbar__content .navbar__mobile.active .mobile__links {
-      display: flex;
-      flex-direction: column;
-      background-color:#569AFF;  
-      width: 100%;
-      position: absolute;
-      top: 98%; 
-      left: 0;
-      padding: 1rem 0;
-      box-shadow: 0 0.4rem 0.5rem rgba(0, 0, 0, 0.466);
-      z-index: 1;
-    }
-  
-    .navbar .navbar__content .navbar__mobile.active .mobile__links li {
-      margin-right: 0;
-    }
-  
-    .navbar .navbar__content .navbar__mobile.active .mobile__links li a {
-      padding: 1rem;
-      display: block;
-      text-align: center;
-    }
+  /* Menu mobile aberto */
+  .navbar .navbar__content .navbar__mobile.active .mobile__links {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--navbar-bg); 
+    width: 100%;
+    position: absolute;
+    top: 0; /* Começa do topo */
+    left: 0;
+    padding: 8rem 0 2rem 0; /* Padding para dar espaço para a logo/ícone */
+    box-shadow: 0 0.4rem 0.5rem rgba(0, 0, 0, 0.466);
+    z-index: 99; /* Fica abaixo do ícone "X" */
   }
+
+  .navbar .navbar__content .navbar__mobile.active .mobile__links li {
+    margin-right: 0;
+  }
+
+  .navbar .navbar__content .navbar__mobile.active .mobile__links li a {
+    padding: 1.5rem 1rem; /* Mais espaçamento */
+    display: block;
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  /* Estilos para os toggles DENTRO do menu mobile */
+  .navbar .navbar__content .mobile__toggles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    margin-top: 1rem;
+    border-top: 1px solid var(--text-color); /* Separador */
+  }
+
+  /* Ajusta o dropdown para abrir para CIMA */
+  .navbar .navbar__content .mobile__toggles .dropdown {
+    top: auto;
+    bottom: 120%; /* Abre para cima */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+.navbar .navbar__content .mobile__toggles .language-dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem; /* Espaço de 20px entre os dois botões */
+}
+
+/* 2. FORÇA o botão de tema a ter margem zero */
+.navbar .navbar__content .mobile__toggles #theme-toggle-button-mobile {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 3. FORÇA a IMAGEM do botão de tema a ter margem zero */
+.navbar .navbar__content .mobile__toggles #theme-icon-mobile {
+  margin: -10px !important;
+  margin-left: -20px !important;
+  width: 80px; /* Seu tamanho padrão */
+  height: 40px;
+}
+
+/* 4. FORÇA o botão de idioma a ter margem zero */
+.navbar .navbar__content .mobile__toggles #language-toggle-button-mobile {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 5. FORÇA a IMAGEM do botão de idioma a ter margem zero */
+.navbar .navbar__content .mobile__toggles #language-icon-mobile {
+  margin: 0 !important;
+  width: 0px; /* Seu tamanho padrão */
+  height: 16px;
+}
+
+}
