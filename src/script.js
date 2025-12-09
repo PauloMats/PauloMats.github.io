@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
             footerDescription: "Ficarei feliz em saber mais sobre seus projetos e como podemos trabalhar juntos para torná-los realidade.",
             footerDescription2: "© 2025 Paulo Mateus. Todos os direitos reservados.",
             resumeLinkText: "Currículo PTBR",
-            resumeLinkFile: "assets/Paulo_Currículo_Dev_Senior_Full_Stack.pdf",
+            resumeLinkFile: "assets/Paulo_Senior_Software_Engineer_PT.pdf",
         },
         en: {
             header: "Paulo, Senior Software Engineer", 
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
             footerDescription: "I would be happy to learn about your projects and explore how we can work together.",
             footerDescription2: "© 2025 Paulo Mateus. All rights reserved.",
             resumeLinkText: "Resume English",
-            resumeLinkFile: "assets/Paulo_Resume_Software_Engineer.pdf",
+            resumeLinkFile: "assets/Paulo_Senior_Software_Engineer_EN.pdf",
         },
         es: {
           header: "Paulo, Ingeniero de Software Full Stack",
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
           footerDescription: "Me encantaría saber más sobre tus proyectos y cómo podemos trabajar juntos para hacerlos realidad.",
           footerDescription2: "© 2025 Paulo Mateus. Todos los derechos reservados.",
           resumeLinkText: "Currículo en Español",
-          resumeLinkFile: "assets/Paulo_Curriculum_Dev_Senior_Full_Stack_ES.pdf",
+          resumeLinkFile: "assets/Paulo_Senior_Software_Engineer_ES.pdf",
       }
     };
 
