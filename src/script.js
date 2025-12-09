@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
             footerDescription: "I would be happy to learn about your projects and explore how we can work together.",
             footerDescription2: "© 2025 Paulo Mateus. All rights reserved.",
             resumeLinkText: "Resume English",
-            resumeLinkFile: "assets/Paulo_Resume_Senior_Software_Engineer.pdf",
+            resumeLinkFile: "assets/Paulo_Resume_Software_Engineer.pdf",
         },
         es: {
           header: "Paulo, Ingeniero de Software Full Stack",
@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
  // --- INICIALIZAÇÃO ---
   // Configurar o idioma salvo
-  const savedLanguage = localStorage.getItem('language') || 'pt';
+  const savedLanguage = localStorage.getItem('language') || 'en';
   const initialLangOption = document.querySelector(`#language-options [data-lang="${savedLanguage}"] img`);
   if (initialLangOption) {
     const initialFlagSrc = initialLangOption.src;
