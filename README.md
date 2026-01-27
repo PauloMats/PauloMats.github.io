@@ -1,3 +1,5 @@
+v2 deste portfólio em construção em: [Novo Portfólio em React e Next](https://github.com/PauloMats/Portfolio-TS_React_Next)
+
 # Portfólio pessoal
 
 Esse é o meu portfólio pessoal, onde você pode encontrar informações sobre mim, meus projetos e minhas habilidades.
